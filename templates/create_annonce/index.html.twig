@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CreateAnnonceController!{% endblock %}
+
+{% block body %}
+<div class="container border border-warning mt-3 justify-content-center align-content-center" style="border-radius: 12px">
+    <h1 class="mt-5">{{ titre }}</h1>
+    <p>Une maison au prix éxorbitant de {{ prix }}€</p>
+    <p>Elle est située à {{ adresse }}</p>
+    <img style="width: 60%; border-radius: 12px" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+    <h5 class="mt-3">Détails:</h5>
+    <p>Surface habitable : {{ surfaceHabitable }} m²</p>
+    <p>Surface non habitable : {{ surfaceNonHabitable }} m²</p>
+    <h2>Détail des surfaces des pièces :</h2>
+    <ul>
+        {% for piece in pieces %}
+            <li>{{ piece.getTypePiece().getLibelle() }} : {{ piece.getSurface() }} m²</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
